@@ -19,7 +19,7 @@ acc_teq_list = []
 annotator_list = []
 # add to annotations dict
 for file in anno_list:
-    annotator = file.split('/')[-1].split('.')[0]
+    annotator = file.split('/')[-2].split('.')[0]
     #if annotator not in ['Gardner_Expert', 'Annotator_0', 'Annotator_1', 'Annotator_2', 'Annotator_5', 'Annotator_7',
     #                     'Annotator_8']: continue
     print(annotator)
@@ -111,3 +111,10 @@ for i in range(len(annotator_list)):
     if acc_teq_list[i] < cutoff_teq:
         print(annotator_list[i])
         continue
+
+results_df = pd.DataFrame()
+results_df['models'] = annotator_list
+results_df['exp'] = acc_exp_list
+results_df['icm'] = acc_icm_list
+results_df['teq'] = acc_teq_list
+results_df.to_csv('results.txt', index=False, sep=' ')
