@@ -87,3 +87,6 @@ for file in consensus_list:
         print (metrics.classification_report(label_list_exp_gt, label_list_exp))
         print (metrics.classification_report(label_list_icm_gt, label_list_icm))
         print (metrics.classification_report(label_list_teq_gt, label_list_teq))
+        
+        # Break here and collect metrics
+        e=1
