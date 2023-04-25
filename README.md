@@ -3,7 +3,11 @@
 Repository containing scripts supporting the manuscript "An annotated human blastocyst dataset to benchmark deep learning architectures for in vitro fertilization",
 submitted to Nature Scientific Data. The dataset associated with this manuscript, uploaded to figshare, is referenced here: https://doi.org/10.6084/m9.figshare.20123153.v3
 
-Content: 
+## Environment
+Python Version: 3.7
+Pip-packages: numpy, pandas, scikit-learn, glob, os
+
+##Content: 
 * Folder [annotations](annotations): contains all annotations from the international experts on splits of the test set (150 out of 300 images were annotated by each expert such that each image was seen by at least 5 experts), and the consensus vote (gold-standard annotations) of the test set ([test_rev.csv](/annotations/test_rev.csv))
 * Folder [model_predictions](model_predictions): contains predictions of multiple CNN- and vision-transformer architectures on the gold-standard test set, trained using the silver-standard training- and validation set. 
 * [complete.csv](complete.csv): Silver-standard annotations of the entire image dataset, for each of the three Gardner criteria (expansion, inner cell mass quality and trophectoderm quality), created by the Gardner expert.
