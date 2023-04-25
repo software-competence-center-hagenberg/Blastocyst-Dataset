@@ -8,8 +8,8 @@ from glob import glob
 from sklearn import metrics
 
 # get list of prediction files from architectures
-prediction_list = [r'C:\prediction_xception.csv']
-consensus_list = [r'C:\Gardner_test_gold_onlyGardnerScores.csv']
+prediction_list = [r'model_predictions\xception\pred.csv']
+consensus_list = [r'annotations\test_rev.csv']
 acc_exp_list = []
 acc_icm_list = []
 acc_teq_list = []
@@ -83,7 +83,7 @@ for file in consensus_list:
                 label_list_icm_gt.append(icm_gt)
                 label_list_teq.append(teq)
                 label_list_teq_gt.append(teq_gt)
-        # Calculate Kappa scores
+        # Calculate evaluation metrics (including accuracy, class-weighted average of precision, recall and F1 score)
         print (metrics.classification_report(label_list_exp_gt, label_list_exp))
         print (metrics.classification_report(label_list_icm_gt, label_list_icm))
         print (metrics.classification_report(label_list_teq_gt, label_list_teq))
