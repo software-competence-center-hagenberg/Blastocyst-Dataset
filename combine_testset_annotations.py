@@ -12,7 +12,7 @@ anno_list.reverse()  # orders Garner Expert first to take their annotation in ca
 mj_icm = mj_exp = mj_teq = 0
 # add to annotations dict
 for file in anno_list:
-    annotator = file.split('/')[-1].split('.')[0]
+    annotator = file.split('\\')[-1].split('.')[0]
     if annotator not in ['Gardner_Expert', 'Annotator_0', 'Annotator_1', 'Annotator_2', 'Annotator_5', 'Annotator_7',
                          'Annotator_8']:
         continue
