@@ -4,7 +4,7 @@ Repository containing scripts supporting the manuscript "An annotated human blas
 submitted to Nature Scientific Data. The dataset associated with this manuscript, uploaded to figshare, is referenced here: https://doi.org/10.6084/m9.figshare.20123153.v3
 
 Content: 
-* Folder [annotations](annotations): contains all annotations from the international experts on splits of the test set (150 out of 300 images were annotated by each expert such that each image was seen by at least 5 experts), and the consensus vote (gold-standard annotations) of the test set ([test_rev.csv](annotations\test_rev.csv))
+* Folder [annotations](annotations): contains all annotations from the international experts on splits of the test set (150 out of 300 images were annotated by each expert such that each image was seen by at least 5 experts), and the consensus vote (gold-standard annotations) of the test set ([test_rev.csv](annotations/test_rev.csv))
 * [complete.csv](complete.csv): Silver-standard annotations of the entire image dataset, for each of of the three Gardner criteria (expansion, inner cell mass quality and trophectoderm quality), created by the Gardner expert.
 * [create_testset.py](create_testset.py): Script used to create a stratified split of the dataset into training-, validation-, and test set.
 * [combine_testset_annotations.py](combine_testset_annotations.py): Script applied to calculate the majority vote for each blastocyst image and for each of the three Gardner criteria, based on experts' votes (upon removing annotations from experts whose accuracy was below 0.5 when compared to the Gardner-Expert annotations).
