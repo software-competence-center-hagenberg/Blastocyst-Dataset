@@ -3,13 +3,11 @@ import pandas as pd
 from glob import glob
 
 # get list of all annotation files from international annotators
-anno_list = glob('model_predictions/*/pred.csv')
-#anno_list = glob('annotations/*.csv')
-#anno_list.remove('annotations/test.csv')
-#anno_list.remove('annotations/test_rev.csv')
+anno_list = glob('annotations\\*.csv')
+anno_list.remove('annotations\\test_rev.csv')
 print(anno_list)
 
-test_anno = np.loadtxt('annotations/test_rev.csv', dtype=str, delimiter=',', usecols=(0, 1, 2, 3))
+test_anno = np.loadtxt('annotations\\test_rev.csv', dtype=str, delimiter=',', usecols=(0, 1, 2, 3))
 
 annotations = {image: [int(float(exp)), int(icm), int(teq)] for image, exp, icm, teq in test_anno}
 
@@ -19,9 +17,10 @@ acc_teq_list = []
 annotator_list = []
 # add to annotations dict
 for file in anno_list:
-    annotator = file.split('/')[-2].split('.')[0]
-    #if annotator not in ['Gardner_Expert', 'Annotator_0', 'Annotator_1', 'Annotator_2', 'Annotator_5', 'Annotator_7',
-    #                     'Annotator_8']: continue
+    annotator = file.split('\\')[-1].split('.')[0]
+    # Only apply to annotators remaining after filtering
+    if annotator not in ['Gardner_Expert', 'Annotator_0', 'Annotator_1', 'Annotator_2', 'Annotator_5', 'Annotator_7',
+                         'Annotator_8']: continue
     print(annotator)
     annotator_list.append(annotator)
     wrong_labels_exp = 0
