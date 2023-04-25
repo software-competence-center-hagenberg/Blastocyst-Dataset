@@ -10,9 +10,9 @@ from sklearn.metrics import cohen_kappa_score
 
 # get list of all annotation files from international annotators upon expert filtering
 
-anno_list = ['annotations\\Annotator_0.csv','annotations\\Annotator_1.csv','annotations\\Annotator_2.csv','annotations\\Annotator_5.csv','annotations\\Annotator_7.csv','annotations\\Annotator_8.csv','annotations\\Annotator_Expert.csv']
+anno_list = ['annotations\\Annotator_0.csv','annotations\\Annotator_1.csv','annotations\\Annotator_2.csv','annotations\\Annotator_5.csv','annotations\\Annotator_7.csv','annotations\\Annotator_8.csv','annotations\\Gardner_Expert.csv', 'annotations\\test_rev.csv']
 print(anno_list)
-test_list = ['annotations\\test_rev.csv']
+test_list = ['annotations\\Annotator_0.csv','annotations\\Annotator_1.csv','annotations\\Annotator_2.csv','annotations\\Annotator_5.csv','annotations\\Annotator_7.csv','annotations\\Annotator_8.csv','annotations\\Gardner_Expert.csv', 'annotations\\test_rev.csv']
 
 acc_exp_list = []
 acc_icm_list = []
@@ -35,7 +35,7 @@ for file in test_list:
         conf_mat = np.zeros(shape=(3, 6, 6,))
         count = np.zeros(shape=(3,))
 
-        anno = pd.read_csv(file_to_compare, header=None).fillna(-1)
+        anno = pd.read_csv(file_to_compare, header=None, usecols=(0,1,2,3)).fillna(-1)
         label_list_exp = []
         label_list_exp_gt = []
         label_list_icm = []
