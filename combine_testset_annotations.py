@@ -7,7 +7,6 @@ annotations = {filename: [[], [], [], 0] for filename in filenames}
 
 # get list of all annotation files from international annotators
 anno_list = glob('annotations/*.csv')
-anno_list.remove('annotations/test.csv')
 
 anno_list.reverse()  # orders Garner Expert first to take their annotation in case of 50/50
 mj_icm = mj_exp = mj_teq = 0
@@ -38,7 +37,7 @@ for file in anno_list:
         if exp == -1 and teq != -1:
             annotations[filename][2].append(teq)
 
-with open('annotations/test.csv', 'w+') as file:
+with open('annotations/test_rev.csv', 'w+') as file:
     for k, v in annotations.items():
 
         # majority vote on expansion
