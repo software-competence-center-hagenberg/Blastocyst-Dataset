@@ -17,7 +17,7 @@ annotator_list = []
 
 for file in consensus_list:
     current_consensus = file.split('\\')[-1].split('.')[0]
-    test_anno = np.loadtxt(file, dtype=str, delimiter=';', usecols=(0, 1, 2, 3), skiprows=0)
+    test_anno = np.loadtxt(file, dtype=str, delimiter=',', usecols=(0, 1, 2, 3), skiprows=0)
     consensus_annotations = {image: [str(exp), str(icm), str(teq)] for image, exp, icm, teq in test_anno}
     for file_to_compare in prediction_list:
         model = file_to_compare.split('\\')[-1].split('.')[0]
