@@ -4,6 +4,8 @@ Repository containing scripts supporting the manuscript "An annotated human blas
 submitted to Nature Scientific Data. The dataset associated with this manuscript, uploaded to figshare, is referenced here: https://doi.org/10.6084/m9.figshare.20123153.v3
 
 ## Environment
+Windows: v10
+
 Python Version: 3.7
 
 Pip-packages: numpy, pandas, scikit-learn, glob, os
